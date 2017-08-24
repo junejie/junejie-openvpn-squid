@@ -2,15 +2,19 @@ DESCRIPTION
 -----------
 
 This will start a openvpn client and start a squid proxy for that vpn
-Vpn server to be use are from vpnbook.com
+Vpn server to be use are from vpnbook.com. You can use this if you want to access websites that is block in firewall
 
 SETUP
 -----
 
-    Download and extract the file to config/vpnbook.
-    vpn book website: https://www.vpnbook.com/#openvpn
+Download and extract the file to config/vpnbook.
+vpn book website: https://www.vpnbook.com/#openvpn
 
-    The `ovpn` file should inside `config/vpnbook/` directory because this will be mounter in docker as `/data`.
+The `ovpn` file should inside `config/vpnbook/` directory because this will be mounter in docker as `/data`.
+
+After successful run. Open your browser and configure your proxy to `localhost` and port `3128`.
+
+![browser](https://raw.githubusercontent.com/junejie/junejie-openvpn-squid/master/images/screenshot-1.png)
 
 BUILD (optional)
 ----------------
