@@ -11,7 +11,7 @@ sed -i '/http_access allow localnet/s/^#//g' /etc/squid/squid.conf
 # support 8443
 sed -i '/443/a acl SSL_ports port 8443' /etc/squid/squid.conf
 
-openvpn --config /data/config/vpnbook/vpnbook-euro2-tcp443.ovpn &
+openvpn --config /data/config/vpnbook/$OVPN_FILENAME &
 sleep 30
 service squid start && \
 echo "Success"
