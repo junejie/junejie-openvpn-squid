@@ -8,6 +8,7 @@ RUN apt-get install -y openvpn
 RUN apt-get install -y iputils-ping
 RUN apt-get install -y dnsutils
 RUN apt-get install -y curl
+RUN apt-get install -y unzip
 
 ENV VPN_USER testuser
 ENV VPN_PASS testpass

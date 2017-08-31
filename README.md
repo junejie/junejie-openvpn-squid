@@ -4,6 +4,8 @@ DESCRIPTION
 This will start a openvpn client and start a squid proxy for that vpn
 Vpn server to be use are from vpnbook.com. You can use this if you want to access websites that is block in firewall
 
+Tested in OSX 10.12.x
+
 SETUP
 -----
 
