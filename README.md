@@ -27,9 +27,18 @@ RUN
     $ docker run \
         --env OVPN_FILENAME=vpnbook-euro2-tcp443.ovpn \
         --env VPN_USER=vpnbook \
-        --env VPN_PASS=he2qv5h \
         -p 3128:3128 \
         --device=/dev/net/tun \
         --cap-add=NET_ADMIN \
         -v $(pwd):/data \
-        --rm -it ccfbb78ff9c8
+        --rm -it <container_id>
+
+
+DOWNLOAD
+--------
+
+    $ cd config/vpnbook
+
+    $ curl https://www.vpnbook.com/free-openvpn-account/VPNBook.com-OpenVPN-Euro2.zip -o vpn.zip
+
+    $ unzip vpn.zip
