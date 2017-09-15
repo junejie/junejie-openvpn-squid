@@ -1,9 +1,10 @@
 #!/bin/bash
 
 echo "Downloading vpn config"
+echo "extracting vpn config"
 mkdir -p /data/config/vpnbook
 cd /data/config/vpnbook
-curl https://www.vpnbook.com/free-openvpn-account/VPNBook.com-OpenVPN-Euro2.zip -o vpn.zip
+curl -s https://www.vpnbook.com/free-openvpn-account/VPNBook.com-OpenVPN-Euro2.zip -o vpn.zip
 unzip -o vpn.zip
 
 echo "Saving vpn credentials"
