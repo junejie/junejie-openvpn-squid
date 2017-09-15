@@ -8,9 +8,10 @@ unzip -o vpn.zip
 
 echo "Saving vpn credentials"
 VPN_PASSWORD=$(curl -sG https://www.vpnbook.com/\#openvpn | grep -m 1 Password | awk '{print $2}' | cut -f1 -d '<')
-echo $VPN_USER > /data/auth.txt
+touch /data/auth.txt
+echo vpnbook > /data/auth.txt
 echo $VPN_PASSWORD >> /data/auth.txt
-sed -i 's/auth-user-pass/auth-user-pass \/data\/auth.txt/g' /data/config/vpnbook/$OVPN_FILENAME
+sed -i 's/auth-user-pass/auth-user-pass \/data\/auth.txt/g' /data/config/vpnbook/vpnbook-euro2-tcp443.ovpn
 
 echo "Updating Squid Config"
 sed -i '/acl localnet src 172.16.0.0\/12/s/^#//g' /etc/squid/squid.conf
@@ -18,7 +19,7 @@ sed -i '/http_access allow localnet/s/^#//g' /etc/squid/squid.conf
 sed -i '/443/a acl SSL_ports port 8443' /etc/squid/squid.conf
 
 echo "Starting vpn client"
-openvpn --config /data/config/vpnbook/$OVPN_FILENAME &
+openvpn --config /data/config/vpnbook/vpnbook-euro2-tcp443.ovpn &
 sleep 30
 
 echo "Starting squid server"
