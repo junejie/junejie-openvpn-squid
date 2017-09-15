@@ -1,7 +1,7 @@
 #!/bin/bash
 
+OLD_IP=$(dig +short myip.opendns.com @resolver1.opendns.com)
 echo "Downloading vpn config"
-echo "extracting vpn config"
 mkdir -p /data/config/vpnbook
 cd /data/config/vpnbook
 curl -s https://www.vpnbook.com/free-openvpn-account/VPNBook.com-OpenVPN-Euro2.zip -o vpn.zip
@@ -36,4 +36,9 @@ echo " -----------------------------------------"
 echo "| You can now use localhost:3128 as proxy |"
 echo " -----------------------------------------"
 
+NOW_IP=$(dig +short myip.opendns.com @resolver1.opendns.com)
+echo "+--------summary------+"
+echo "| old ip:     $OLD_IP"
+echo "| current ip: $NOW_IP"
+echo "+---------------------+"
 while true; do sleep 1000; done
